@@ -58,7 +58,7 @@ function createHeaders() {
   Content-Security-Policy: ${csp}`),
     );
 
-    const headersFile = path.join(buildDir, '.vercel', 'headers');
+    const headersFile = '/tmp/_headers';
     fs.writeFileSync(headersFile, `${headers}${cspArray.join('\n')}`);
 }
 
