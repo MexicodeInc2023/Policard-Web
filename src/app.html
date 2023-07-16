@@ -5,10 +5,16 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<link href="%sveltekit.assets%/bootstrap-5.3.0-dist/css/bootstrap.min.css" rel="stylesheet" />
+		<!-- Etiquetas de seguridad -->
+		<meta name="referrer" content="strict-origin" />
+		<meta name="x-content-type-options" content="nosniff" />
+		<meta name="x-frame-options" content="DENY" />
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
+
 		<script src="%sveltekit.assets%/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js"></script>
+		<script nonce="%sveltekit.nonce%"></script>
 	</body>
 </html>
