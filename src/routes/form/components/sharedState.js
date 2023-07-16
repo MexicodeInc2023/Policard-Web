@@ -45,3 +45,6 @@ export let contactemergencyIsError = writable(false)
 export let phoneemergencyIsError = writable(false)
 export let customerbloodtypeIsError = writable(false)
 
+// VALIDATION
+export let message = writable("")
+export let errorValidation = writable(false)

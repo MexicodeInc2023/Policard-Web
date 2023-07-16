@@ -47,6 +47,7 @@
 	const Datapromise = getData(urlStudent, options) // fetch the data
 		.then((response) => {
 			Datos = response.Datos;
+			console.log(Datos);
 			Career = response.Career;
 			Emergency = response.Emergency;
 			return { Datos, Career, Emergency };
@@ -88,7 +89,7 @@
 		{:then data}
 			<div class="card">
 				<div class="img">
-					<img src={LogoUP} alt="" loading="lazy" decoding="async" />
+					<img src={LogoUP} alt="Foto Universidad" loading="lazy" decoding="async" />
 				</div>
 				<div class="infos">
 					<div class="name">
@@ -105,7 +106,7 @@
 							<h4>Cuatrimestre</h4>
 						</li>
 						<li>
-							<h3>O+</h3>
+							<h3>{data.Emergency.blood_type}</h3>
 							<h4>Tipo Sangre</h4>
 						</li>
 					</ul>
@@ -151,7 +152,6 @@
 </body>
 
 <style>
-	@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;700&display=swap';
 	* {
 		margin: 0;
 		padding: 0;
@@ -159,7 +159,7 @@
 		box-sizing: border-box;
 	}
 	body {
-		font-family: 'Poppins', sans-serif;
+		font-family: 'Inter', sans-serif;
 		align-items: center;
 		justify-content: center;
 		min-height: 100vh;

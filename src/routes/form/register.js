@@ -1,5 +1,7 @@
-import { customerEmail, customerUserName, customerPassword, customerPersonalname, customerLastnames, customerMatricula, customerDate, customerGroup, customerAlergy, customerAlergyextra, customerContactemergency, customerPhoneEmergency, customerPhoneEmergency2, customerBloodType, customerCarreer } from "./components/sharedState";
+import { customerEmail, customerUserName, customerPassword, customerPersonalname, customerLastnames, customerMatricula, customerDate, customerGroup, customerAlergy, customerAlergyextra, customerContactemergency, customerPhoneEmergency, customerPhoneEmergency2, customerBloodType, customerCarreer, errorValidation } from "./components/sharedState";
+import { beforeNavigate } from '$app/navigation';
 
+import { redirect } from '@sveltejs/kit';
 import { BaseUrl } from "../../stores/apiUrl";
 const headersList = {
     "Accept": "*/*",
@@ -82,17 +84,18 @@ export const sendRegisterData = async () => {
     });
     console.log(studentRequestBody);
 
-    try {
-        // Enviamos los datos de registro
 
+
+    try {
         const response = await fetch(`${BaseUrl}api/register/`, {
             method: 'POST',
             headers: headersList,
             body: registerRequestBody
         });
         if (!response.ok) {
-            console.log(response);
-            throw new Error("Error en la petición" + response.status);
+            console.error(response);
+            errorValidation.set(true);
+            return;
         }
         const data = await response.json();
         const DataUser = data;
@@ -104,8 +107,9 @@ export const sendRegisterData = async () => {
             body: emergencyRequestBody
         });
         if (!response2.ok) {
-            console.log(response2);
-            throw new Error("Error en la petición" + response2.status);
+            console.error(response2);
+            errorValidation.set(true);
+            return;
         }
         const data2 = await response2.json();
         const DataEmergency = data2.data;
@@ -123,15 +127,27 @@ export const sendRegisterData = async () => {
             body: requestBodyWithIds,
         });
         if (!response3.ok) {
-            console.log(response3);
-            throw new Error("Error en la petición" + response3.status);
+            console.error(response3);
+            errorValidation.set(true);
+            return;
         }
+
+        errorValidation.set(false);
         const data3 = await response3.json();
         const DataStudent = data3.data;
         console.log(DataStudent);
 
+
+
     } catch (error) {
-        console.log(error);
+        beforeNavigate(() => {
+            alert("tenemos complicaciones al procesar los datos, vuelva a intentarlo más tarde, si el error persiste contacte a soporte");
+            console.log(error);
+            errorValidation.set(true);
+        }
+        );
+
+        throw redirect(303, '/');
     }
 
 }
