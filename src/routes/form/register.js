@@ -13,7 +13,7 @@ let password = "";
 
 let emergency_name = "";
 let emergency_phone = "";
-let emergency_phone2 = "";
+let emergency_phone2 = "hola";
 let blood_type = "";
 let allergy = "";
 let allergy2 = "";
@@ -93,6 +93,7 @@ export const sendRegisterData = async () => {
             body: registerRequestBody
         });
         if (!response.ok) {
+            console.log("Error al registrar usuario");
             console.error(response);
             errorValidation.set(true);
             return;
@@ -107,6 +108,7 @@ export const sendRegisterData = async () => {
             body: emergencyRequestBody
         });
         if (!response2.ok) {
+            console.log("Error al registrar emergencia");
             console.error(response2);
             errorValidation.set(true);
             return;
@@ -127,6 +129,7 @@ export const sendRegisterData = async () => {
             body: requestBodyWithIds,
         });
         if (!response3.ok) {
+            console.log("Error al registrar estudiante");
             console.error(response3);
             errorValidation.set(true);
             return;

@@ -7,13 +7,12 @@
 	window.setTimeout(() => {
 		showComponent = true;
 	}, 0);
-
+	let errorMessage =
+		'Ha ocurrido un error, por favor intente de nuevo. Si el error persiste, contacte a soporte.';
 	let action = () => {
 		if ($errorValidation) {
-			$message.set(
-				'Ha ocurrido un error, por favor intente de nuevo. Si el error persiste, contacte a soporte.'
-			);
 			window.location.reload();
+			goto('/form');
 			return;
 		}
 		goto('/login');
@@ -22,12 +21,12 @@
 
 <article class:show={showComponent}>
 	{#if $errorValidation}
-		<p>
-			{$message}
+		<p class="text-bg-danger">
+			{errorMessage}
 		</p>
 	{:else}
 		<img src={thankYouImg} alt="" loading="lazy" decoding="async" />
-		<h3>Gracias! {$errorValidation}</h3>
+		<h3>Gracias! </h3>
 		<p>
 			Gracias por confirmar sus datos. Esperamos que te diviertas utilizando nuestra plataforma. Si
 			alguna vez necesita ayuda, no dude en enviarnos un correo electrónico a mexicode@gmail.com.
