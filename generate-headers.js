@@ -4,7 +4,7 @@ import path from 'path';
 import { parse } from 'node-html-parser';
 
 const __dirname = path.resolve();
-const buildDir = path.join(__dirname, 'build');
+const buildDir = path.join(__dirname, process.env.NEXT_PUBLIC_VERCEL_OUTPUT_PATH || 'build');
 
 const { VITE_SENTRY_ORG_ID, VITE_SENTRY_KEY, VITE_SENTRY_PROJECT_ID } = process.env;
 
@@ -58,7 +58,7 @@ function createHeaders() {
   Content-Security-Policy: ${csp}`),
     );
 
-    const headersFile = path.join(buildDir, '_headers');
+    const headersFile = path.join(buildDir, '.vercel', 'headers');
     fs.writeFileSync(headersFile, `${headers}${cspArray.join('\n')}`);
 }
 
