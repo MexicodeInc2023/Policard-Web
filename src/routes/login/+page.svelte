@@ -1,6 +1,6 @@
 <script>
-	import Policard from '../../lib/img/policard-wt-sf.png';
-	import Portada from '../../lib/img/Portada.png';
+	import Policard from '../../lib/img/policard-wt-sf.webp';
+	import Portada from '../../lib/img/Portada.webp';
 	import { fade, fly } from 'svelte/transition';
 	import { superForm } from 'sveltekit-superforms/client';
 	import { jwt, authenticated } from '../../stores/auth';
@@ -125,69 +125,5 @@
 </body>
 
 <style>
-	body {
-		background: url(../../lib/img/background1.jpg);
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		font-family: 'Inter', sans-serif;
-	}
-	.box-area {
-		width: 930px;
-	}
-	.right-box {
-		padding: 40px 30px 40px 40px;
-	}
-	::placeholder {
-		font-size: 16px;
-	}
-	.rounded-4 {
-		border-radius: 20px;
-	}
-	.rounded-5 {
-		border-radius: 30px;
-	}
-	.invalid {
-		color: #f63131;
-	}
-	#innerPage {
-		width: 100%;
-		max-width: 840px;
-		margin: 0 auto;
-		border-radius: 12px;
-		background: #f7fafc;
-	}
-	.form-control {
-		background: none;
-		border: none;
-		border-bottom: 1px solid #a91ce5;
-		color: #27272e;
-	}
-	#imgBgn {
-		background: url(../../lib/img/temo.jpg) no-repeat;
-		background-size: cover;
-		background-position: center;
-		min-height: 75vh;
-		width: 100%;
-		border-radius: 12px 0 0 12px;
-	}
-	.btn {
-		color: #fff;
-		background-color: purple;
-	}
-	@media only screen and (max-width: 767px) {
-		.box-area {
-			margin: 0 10px;
-		}
-		.left-box {
-			height: 100px;
-			overflow: hidden;
-		}
-		.right-box {
-			padding: 20px;
-		}
-
-	}
-
-
+	body{background:url(../../lib/img/background1.webp);background-position:center;background-repeat:no-repeat;background-size:cover;font-family:'Inter',sans-serif}.box-area{width:930px}.right-box{padding:40px 30px 40px 40px}::placeholder{font-size:16px}.rounded-4{border-radius:20px}.rounded-5{border-radius:30px}.invalid{color:#f63131}#innerPage{width:100%;max-width:840px;margin:0 auto;border-radius:12px;background:#f7fafc}.form-control{background:none;border:none;border-bottom:1px solid #a91ce5;color:#27272e}.btn{color:#fff;background-color:purple}@media only screen and (max-width: 767px){.box-area{margin:0 10px}.left-box{height:100px;overflow:hidden}.right-box{padding:20px}}
 </style>

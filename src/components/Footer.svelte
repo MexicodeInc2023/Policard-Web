@@ -1,6 +1,6 @@
 <script>
-	import logo from '../lib/img/policard-wt-sf.png';
-	import logoMex from '../lib/img/mexicode.png';
+	import logo from '../lib/img/policard-wt-sf.webp';
+	import logoMex from '../lib/img/mexicode.webp';
 </script>
 
 <div class="blockcode">
