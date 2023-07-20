@@ -315,4 +315,9 @@
 	.contenedor {
 		text-align: center; /* Centrar contenido horizontalmente */
 	}
+	@media print {
+		.print-button {
+			display: none;
+		}
+	}
 </style>
