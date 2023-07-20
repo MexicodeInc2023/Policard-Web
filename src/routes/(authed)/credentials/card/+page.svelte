@@ -56,8 +56,14 @@
 			OnError = true;
 			//console.log(error);
 		});
+	function imprimirPagina() {
+		window.print();
+	}
 </script>
 
+<div class="contenedor">
+	<center><button class="print-button" on:click={() => window.print()}>Imprimir</button></center>
+</div>
 <svelte:head>
 	<title>Policard-Credencial</title>
 </svelte:head>
@@ -151,5 +157,162 @@
 </body>
 
 <style>
-	*{margin:0;padding:0;width:100%;box-sizing:border-box}body{font-family:'Inter',sans-serif;align-items:center;justify-content:center;min-height:100vh}img{max-width:100%;display:block}ul{list-style:none}.card::after,.card img{border-radius:50%}body,.card,.stats{display:flex}.card{padding:2.5rem 2rem;border-radius:10px;background-color:rgba(255,255,255,0.5);max-width:500px;height:550px;box-shadow:0 0 30px rgba(0,0,0,0.15);margin:1rem;position:relative;transform-style:preserve-3d;overflow:hidden}.card::before,.card::after{content:'';position:absolute;z-index:-1}.card::before{width:100%;height:100%;border:1px solid #fff;border-radius:10px;top:-.7rem;left:-.7rem}.card::after{height:15rem;width:15rem;background-color:#7352f3;top:-8rem;right:-8rem;box-shadow:2rem 6rem 0 -3rem #18be78}.card img{width:8rem;min-width:80px;box-shadow:0 0 0 5px #1a1423}.infos{margin-left:1.5rem}.name{margin:-6rem 0 2rem 7.5rem}.name h2{font-size:1rem;font-weight:700}.name h4{font-size:.8rem;font-weight:700;color:#333}.text{font-size:.9rem;margin-bottom:.2rem}.stats{margin-bottom:2rem}.stats li{position:relative;min-width:5rem;padding:0 2.5rem 0 0}.stats li h3{font-size:1rem;font-weight:700;padding:1rem 0 0;text-align:center}.stats li h4{font-size:.7rem;font-weight:700;text-align:center}.qr{position:absolute;padding:15rem 0 0 7.8rem}@media screen and (max-width: 450px){.card{display:block;height:780px}.stats{margin-bottom:.8rem}.infos{margin-left:0;margin-top:1.5rem}.name{margin:1.5rem 0 .8rem -.3rem}.qr{margin:-15rem 0 0}}@media screen and (max-width: 540px) and (min-width: 451px){.card{display:block;height:680px}.qr{position:absolute;padding:1rem 0 0 1rem}}
+	* {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Inter', sans-serif;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+	}
+	img {
+		max-width: 100%;
+		display: block;
+	}
+	ul {
+		list-style: none;
+	}
+	.card::after,
+	.card img {
+		border-radius: 50%;
+	}
+	body,
+	.card,
+	.stats {
+		display: flex;
+	}
+	.card {
+		padding: 2.5rem 2rem;
+		border-radius: 10px;
+		background-color: rgba(255, 255, 255, 0.5);
+		max-width: 500px;
+		height: 550px;
+		box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+		margin: 1rem;
+		position: relative;
+		transform-style: preserve-3d;
+		overflow: hidden;
+	}
+	.card::before,
+	.card::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+	}
+	.card::before {
+		width: 100%;
+		height: 100%;
+		border: 1px solid #fff;
+		border-radius: 10px;
+		top: -0.7rem;
+		left: -0.7rem;
+	}
+	.card::after {
+		height: 15rem;
+		width: 15rem;
+		background-color: #7352f3;
+		top: -8rem;
+		right: -8rem;
+		box-shadow: 2rem 6rem 0 -3rem #18be78;
+	}
+	.card img {
+		width: 8rem;
+		min-width: 80px;
+		box-shadow: 0 0 0 5px #1a1423;
+	}
+	.infos {
+		margin-left: 1.5rem;
+	}
+	.name {
+		margin: -6rem 0 2rem 7.5rem;
+	}
+	.name h2 {
+		font-size: 1rem;
+		font-weight: 700;
+	}
+	.name h4 {
+		font-size: 0.8rem;
+		font-weight: 700;
+		color: #333;
+	}
+	.text {
+		font-size: 0.9rem;
+		margin-bottom: 0.2rem;
+	}
+	.stats {
+		margin-bottom: 2rem;
+	}
+	.stats li {
+		position: relative;
+		min-width: 5rem;
+		padding: 0 2.5rem 0 0;
+	}
+	.stats li h3 {
+		font-size: 1rem;
+		font-weight: 700;
+		padding: 1rem 0 0;
+		text-align: center;
+	}
+	.stats li h4 {
+		font-size: 0.7rem;
+		font-weight: 700;
+		text-align: center;
+	}
+	.qr {
+		position: absolute;
+		padding: 15rem 0 0 7.8rem;
+	}
+	@media screen and (max-width: 450px) {
+		.card {
+			display: block;
+			height: 780px;
+		}
+		.stats {
+			margin-bottom: 0.8rem;
+		}
+		.infos {
+			margin-left: 0;
+			margin-top: 1.5rem;
+		}
+		.name {
+			margin: 1.5rem 0 0.8rem -0.3rem;
+		}
+		.qr {
+			margin: -15rem 0 0;
+		}
+	}
+	@media screen and (max-width: 540px) and (min-width: 451px) {
+		.card {
+			display: block;
+			height: 680px;
+		}
+		.qr {
+			position: absolute;
+			padding: 1rem 0 0 1rem;
+		}
+	}
+	.print-button {
+		background-color: #4caf50; /* Color de fondo normal */
+		color: white; /* Color del texto */
+		border: none; /* Sin borde */
+		padding: 6px 12px; /* Espaciado interno */
+		text-align: center; /* Alineación del texto */
+		text-decoration: none; /* Sin subrayado */
+		display: grid;
+		font-size: 18px;
+		cursor: pointer;
+		width: 15%;
+	}
+	.print-button:hover {
+		background-color: #45a049; /* Nuevo color de fondo */
+		align-items: center;
+	}
+	.contenedor {
+		text-align: center; /* Centrar contenido horizontalmente */
+	}
 </style>
