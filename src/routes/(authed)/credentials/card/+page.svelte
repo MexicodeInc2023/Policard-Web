@@ -58,38 +58,42 @@
 		});
 </script>
 
-<div class="uptap" style="text-align: center;"><h1 style="color:#1a1423; padding: 10px 0 0 0;">Credencial UPTAP</h1></div>
+<div class="uptap" style="text-align: center;">
+	<h1 style="color:#1a1423; padding: 10px 0 0 0;">Credencial UPTAP</h1>
+</div>
 <div class="contenedor">
-	<center><button class="print-button" style="margin: 10px 0 10px 0;" on:click={() => window.print()}>Imprimir</button></center>
+	<button class="print-button" style="margin: 10px 0 10px 0;" on:click={() => window.print()}
+		>Imprimir</button
+	>
 </div>
 <svelte:head>
 	<title>Policard-Credencial</title>
 </svelte:head>
 
-<body>
-	{#if OnError}
-		<div class="alert alert-danger">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button>
-			<span class="glyphicon glyphicon-hand-right" /> <strong class="h4">Error Insesperado</strong>
-			<hr class="message-inner-separator" />
-			<p>Intentalo más tarde</p>
-		</div>
-	{:else}
-		{#await Datapromise}
-			<div class="d-flex flex-row align-items-center justify-content-center" style="height:60vh">
-				<div class="spinner-grow text-success" role="status">
-					<span class="sr-only" />
-				</div>
-				<pre />
-				<div class="spinner-grow text-primary" role="status">
-					<span class="sr-only" />
-				</div>
-				<pre />
-				<div class="spinner-grow text-info" role="status">
-					<span class="sr-only" />
-				</div>
+{#if OnError}
+	<div class="alert alert-danger">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true"> ×</button>
+		<span class="glyphicon glyphicon-hand-right" /> <strong class="h4">Error Insesperado</strong>
+		<hr class="message-inner-separator" />
+		<p>Intentalo más tarde</p>
+	</div>
+{:else}
+	{#await Datapromise}
+		<div class="d-flex flex-row align-items-center justify-content-center" style="height:60vh">
+			<div class="spinner-grow text-success" role="status">
+				<span class="sr-only" />
 			</div>
-		{:then data}
+			<pre />
+			<div class="spinner-grow text-primary" role="status">
+				<span class="sr-only" />
+			</div>
+			<pre />
+			<div class="spinner-grow text-info" role="status">
+				<span class="sr-only" />
+			</div>
+		</div>
+	{:then data}
+		<div class="cardContainer">
 			<div class="card">
 				<div class="img">
 					<img src={LogoUP} alt="Foto Universidad" loading="lazy" decoding="async" />
@@ -119,9 +123,7 @@
 					</h4>
 					<p class="text">Numeros de Emergencia:</p>
 					<h4 style="font-size: 0.8rem; font-weight: bold; color: #333; padding-bottom: 1.5rem;">
-						<span class="text-uppercase"
-							>{data.Emergency.emergency_phone} <br /> {data.Emergency.emergency_phone2}</span
-						>
+						<span class="text-uppercase">{data.Emergency.emergency_phone}</span>
 					</h4>
 					<p class="text">Alergia:</p>
 					<h4 style="font-size: 0.8rem; font-weight: bold; color: #333; padding-bottom: 1.5rem;">
@@ -137,22 +139,22 @@
 						codeValue="Nombre: {data.Datos.personalName} {data.Datos.lastname}|Carrera:{data.Career
 							.nameCareers}|Matricula:{data.Datos.license}|Cuatrimestre: {data.Datos
 							.grade}|Nacimiento: {data.Datos.birthday}| Contacto de Emergencia: {data.Emergency
-							.emergency_name}| Numero 1: {data.Emergency.emergency_phone}| Numero extra: {data
-							.Emergency.emergency_phone2}| Tipo de Sangre: {data.Emergency
-							.blood_type}| Alergias: {data.Emergency.allergy} y {data.Emergency.allergy2}|"
+							.emergency_name}| Numero 1: {data.Emergency.emergency_phone}| Tipo de Sangre: {data
+							.Emergency.blood_type}| Alergias: {data.Emergency.allergy} y {data.Emergency
+							.allergy2}|"
 					/>
 				</div>
 			</div>
-		{:catch error}
-			<div class="card text-white bg-danger" style="max-width: 18rem; margin-top: 3rem;">
-				<div class="card-header">Error Insesperado {error}</div>
-				<div class="card-body">
-					<h4 class="card-title">Intente de nuevo</h4>
-				</div>
+		</div>
+	{:catch error}
+		<div class="card text-white bg-danger" style="max-width: 18rem; margin-top: 3rem;">
+			<div class="card-header">Error Insesperado {error}</div>
+			<div class="card-body">
+				<h4 class="card-title">Intente de nuevo</h4>
 			</div>
-		{/await}
-	{/if}
-</body>
+		</div>
+	{/await}
+{/if}
 
 <style>
 	* {
@@ -160,13 +162,13 @@
 		padding: 0;
 		width: 100%;
 		box-sizing: border-box;
+		font-family: 'Inter', sans-serif;
 	}
 
-	body {
-		font-family: 'Inter', sans-serif;
+	.cardContainer {
+		display: flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 100vh;
 	}
 	img {
 		max-width: 100%;
@@ -179,7 +181,7 @@
 	.card img {
 		border-radius: 50%;
 	}
-	body,
+
 	.card,
 	.stats {
 		display: flex;
@@ -311,20 +313,22 @@
 		align-items: center;
 	}
 	.contenedor {
-		text-align: center; /* Centrar contenido horizontalmente */
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
-	@media screen and (max-width: 770px){
+	@media screen and (max-width: 770px) {
 		.print-button {
-		background-color: #4caf50; /* Color de fondo normal */
-		color: white; /* Color del texto */
-		border: none; /* Sin borde */
-		padding: 6px 12px; /* Espaciado interno */
-		text-align: center; /* Alineación del texto */
-		text-decoration: none; /* Sin subrayado */
-		display: grid;
-		font-size: 18px;
-		cursor: pointer;
-		width: 100px;
+			background-color: #4caf50; /* Color de fondo normal */
+			color: white; /* Color del texto */
+			border: none; /* Sin borde */
+			padding: 6px 12px; /* Espaciado interno */
+			text-align: center; /* Alineación del texto */
+			text-decoration: none; /* Sin subrayado */
+			display: grid;
+			font-size: 18px;
+			cursor: pointer;
+			width: 100px;
 		}
 	}
 </style>
