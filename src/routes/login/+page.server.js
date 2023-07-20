@@ -84,6 +84,34 @@ export const actions = {
         console.log(dataLogin);
         db.setSession(dataLogin);
 
+        cookies.set('user', dataLogin.name, {
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7,
+            httpOnly: true,
+            sameSite: 'strict',
+        });
+
+        cookies.set('emailUser', dataLogin.email, {
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7,
+            httpOnly: true,
+            sameSite: 'strict',
+        });
+
+        cookies.set('status', dataLogin.statuscredential, {
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7,
+            httpOnly: true,
+            sameSite: 'strict',
+        });
+
+        cookies.set('idUser', dataLogin.id, {
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7,
+            httpOnly: true,
+            sameSite: 'strict',
+        });
+
         cookies.set('access_token', dataLogin.tokens.access, {
             path: '/',
             maxAge: 60 * 60 * 24 * 7,

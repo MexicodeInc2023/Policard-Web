@@ -23,6 +23,10 @@ export const handle = async ({ event, resolve }) => {
             db.clearSession();
             event.cookies.delete('access_token');
             event.cookies.delete('refresh_token');
+            event.cookies.delete('user');
+            event.cookies.delete('emailUser');
+            event.cookies.delete('idUser');
+            event.cookies.delete('status');
             throw redirect(307, `/`);
         }
 
@@ -46,6 +50,10 @@ export const handle = async ({ event, resolve }) => {
         db.clearSession();
         event.cookies.delete('access_token');
         event.cookies.delete('refresh_token');
+        event.cookies.delete('user');
+        event.cookies.delete('emailUser');
+        event.cookies.delete('idUser');
+        event.cookies.delete('status');
         console.log('Cookies borradas, Adios!');
         throw redirect(303, `/`);
     }

@@ -10,9 +10,7 @@
 	let OnError;
 	export let data;
 
-	const dataSession = data.session;
-	console.log(dataSession);
-	const urlStudent = BaseUrl + 'api/student/' + dataSession.id + '/';
+	const urlStudent = BaseUrl + 'api/student/' + data.userSession.idUser + '/';
 	let options = {
 		method: 'GET'
 	};
