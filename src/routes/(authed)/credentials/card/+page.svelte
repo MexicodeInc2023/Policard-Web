@@ -313,4 +313,18 @@
 	.contenedor {
 		text-align: center; /* Centrar contenido horizontalmente */
 	}
+	@media screen and (max-width: 770px){
+		.print-button {
+		background-color: #4caf50; /* Color de fondo normal */
+		color: white; /* Color del texto */
+		border: none; /* Sin borde */
+		padding: 6px 12px; /* Espaciado interno */
+		text-align: center; /* Alineación del texto */
+		text-decoration: none; /* Sin subrayado */
+		display: grid;
+		font-size: 18px;
+		cursor: pointer;
+		width: 100px;
+		}
+	}
 </style>
