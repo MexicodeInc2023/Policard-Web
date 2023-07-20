@@ -56,13 +56,11 @@
 			OnError = true;
 			//console.log(error);
 		});
-	function imprimirPagina() {
-		window.print();
-	}
 </script>
 
+<div class="uptap" style="text-align: center;"><h1 style="color:#1a1423; padding: 10px 0 0 0;">Credencial UPTAP</h1></div>
 <div class="contenedor">
-	<center><button class="print-button" on:click={() => window.print()}>Imprimir</button></center>
+	<center><button class="print-button" style="margin: 10px 0 10px 0;" on:click={() => window.print()}>Imprimir</button></center>
 </div>
 <svelte:head>
 	<title>Policard-Credencial</title>
@@ -314,10 +312,5 @@
 	}
 	.contenedor {
 		text-align: center; /* Centrar contenido horizontalmente */
-	}
-	@media print {
-		.print-button {
-			display: none;
-		}
 	}
 </style>

@@ -19,43 +19,60 @@
 			<div class="footer-col">
 				<h5>Conocenos:</h5>
 				<div class="social-links">
-					<a href="https://mexic0de.page/" target="_blank"><img src={logoMex} width="30px" loading="lazy" decoding="async" ></a>
+					<a href="https://mexic0de.page/" target="_blank"
+						><img src={logoMex} width="30px" loading="lazy" decoding="async" /></a
+					>
 				</div>
 			</div>
+		</div>
 	</footer>
 </div>
 
 <style>
-
-.footer-col ul li a{
-	font-size: 16px;
-	text-transform: capitalize;
-	color: #ffffff;
-	text-decoration: none;
-	font-weight: 300;
-	color: #bbbbbb;
-	display: block;
-	transition: all 0.3s ease;
-}
-.footer-col ul li a:hover{
-	color: #ffffff;
-	padding-left: 8px;
-}
-.footer-col .social-links a{
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	background-color: rgba(255,255,255,0.2);
-	margin:0 10px 10px 0;
-	text-align: center;
-	line-height: 40px;
-	border-radius: 50%;
-	color: #ffffff;
-	transition: all 0.5s ease;
-}
-.footer-col .social-links a:hover{
-	color: #24262b;
-	background-color: #ffffff;
-}
-	footer{background-color:#e4e4e4;padding:10px 0;width:100%;height:auto;color:#000}@media print{footer{display:none}}
+	.footer-col ul li a {
+		font-size: 16px;
+		text-transform: capitalize;
+		color: #ffffff;
+		text-decoration: none;
+		font-weight: 300;
+		color: #bbbbbb;
+		display: block;
+		transition: all 0.3s ease;
+	}
+	.footer-col ul li a:hover {
+		color: #ffffff;
+		padding-left: 8px;
+	}
+	.footer-col .social-links a {
+		display: inline-block;
+		height: 40px;
+		width: 40px;
+		background-color: rgba(255, 255, 255, 0.2);
+		margin: 0 10px 10px 0;
+		text-align: center;
+		line-height: 40px;
+		border-radius: 50%;
+		color: #ffffff;
+		transition: all 0.5s ease;
+	}
+	.footer-col .social-links a:hover {
+		color: #24262b;
+		background-color: #ffffff;
+	}
+	footer {
+		background-color: #e4e4e4;
+		padding: 10px 0;
+		width: 100%;
+		height: auto;
+		color: #000;
+	}
+	@media print {
+		footer {
+			display: none;
+			visibility: hidden; /* Asegurar que no ocupe espacio */
+		}
+		@page {
+        margin: 0.5rem;
+    }
+	}
 </style>
