@@ -12,7 +12,7 @@
 	//console.log('Datos de la sesion', data.userSession);
 
 	if (!data) {
-		console.log('No hay datos');
+		// console.log('No hay datos');
 		logout();
 		location.reload();
 	}
