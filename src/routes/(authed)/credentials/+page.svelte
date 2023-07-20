@@ -4,7 +4,7 @@
 	export let data;
 
 	if (!data) {
-		console.log('No hay datos');
+		// console.log('No hay datos');
 	}
 </script>
 

@@ -9,18 +9,18 @@
 	export let data;
 
 	if (!data) {
-		console.log('No hay datos');
+		// console.log('No hay datos');
 	}
 
 	const dataSession = data.session;
 
 	onMount(() => {
-		console.log('Datos de la sesion', $procedureTrue);
+		// console.log('Datos de la sesion', $procedureTrue);
 		if ($procedureTrue || $procedureTrue === undefined) {
-			console.log('Datos de la sesion', dataSession.status);
+			// console.log('Datos de la sesion', dataSession.status);
 			statusCredentials.set(dataSession.status);
 		}
-		console.log('Id de la solicitud', $id_rq);
+		// console.log('Id de la solicitud', $id_rq);
 		checkStatus($id_rq);
 	});
 

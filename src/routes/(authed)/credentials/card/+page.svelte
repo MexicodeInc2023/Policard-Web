@@ -11,7 +11,7 @@
 	export let data;
 
 	const dataSession = data.session;
-	console.log(dataSession);
+	// console.log(dataSession);
 	const urlStudent = BaseUrl + 'api/student/' + dataSession.id + '/';
 	let options = {
 		method: 'GET'
@@ -46,7 +46,7 @@
 	const Datapromise = getData(urlStudent, options) // fetch the data
 		.then((response) => {
 			Datos = response.Datos;
-			console.log(Datos);
+			// console.log(Datos);
 			Career = response.Career;
 			Emergency = response.Emergency;
 			return { Datos, Career, Emergency };
