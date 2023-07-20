@@ -73,9 +73,9 @@
 
 	const validate = async (data, schema) => {
 		const form = await superValidate(data, schema);
-		console.log(form);
+		// console.log(form);
 		if (!form.valid) {
-			console.log(form.errors);
+			// console.log(form.errors);
 			return form;
 		}
 		return form;
@@ -136,7 +136,7 @@
 		//console.log('click');
 
 		(await register).sendRegisterData().catch((err) => {
-			console.log(err);
+			// console.log(err);
 			alert('Error al enviar los datos, por favor intenta de nuevo');
 			return;
 		});

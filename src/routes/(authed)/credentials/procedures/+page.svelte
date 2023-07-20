@@ -38,7 +38,7 @@
 		};
 
 		try {
-			console.log(motivo_Body);
+			// console.log(motivo_Body);
 			const response = await fetch(BaseUrl + 'api/request_reason/', {
 				method: 'POST',
 				headers: {
@@ -46,9 +46,9 @@
 				},
 				body: JSON.stringify(motivo_Body)
 			}).catch((error) => {
-				console.log(error);
+				// console.log(error);
 			});
-			console.log(response);
+			// console.log(response);
 			const data = await response.json();
 			const dataPost = data.data;
 			response.ok ? procedureTrue.set(true) : procedureTrue.set(false);
@@ -59,7 +59,7 @@
 				checkStatus(value);
 			});
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 		e.preventDefault();
 		//console.log(e);

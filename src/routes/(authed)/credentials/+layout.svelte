@@ -23,12 +23,12 @@
 	}
 
 	onMount(() => {
-		console.log('Datos de la sesion', $procedureTrue);
+		// console.log('Datos de la sesion', $procedureTrue);
 		if ($procedureTrue || $procedureTrue === undefined) {
-			console.log('Datos de la sesion', data.userSession.status);
-			statusCredentials.set(data.userSession.status);
+			// console.log('Datos de la sesion', dataSession.status);
+			statusCredentials.set(dataSession.status);
 		}
-		console.log('Id de la solicitud', $id_rq);
+		// console.log('Id de la solicitud', $id_rq);
 		checkStatus($id_rq);
 	});
 
