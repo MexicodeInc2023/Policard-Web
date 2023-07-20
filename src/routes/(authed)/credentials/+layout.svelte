@@ -9,7 +9,7 @@
 
 	export let data;
 
-	console.log('Datos de la sesion', data.userSession);
+	//console.log('Datos de la sesion', data.userSession);
 
 	if (!data) {
 		console.log('No hay datos');
@@ -26,7 +26,7 @@
 		// console.log('Datos de la sesion', $procedureTrue);
 		if ($procedureTrue || $procedureTrue === undefined) {
 			// console.log('Datos de la sesion', dataSession.status);
-			statusCredentials.set(dataSession.status);
+			statusCredentials.set(data.userSession.status);
 		}
 		// console.log('Id de la solicitud', $id_rq);
 		checkStatus($id_rq);
